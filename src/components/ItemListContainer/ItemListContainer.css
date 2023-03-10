@@ -1,0 +1,16 @@
+.greetingText {
+    padding: 20rem;
+    font-family: "Cinzel", serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+     letter-spacing: 0.1em;
+     line-height: 1.5em;
+     overflow: hidden;
+     background: linear-gradient(90deg, #000000, #F49A5D, #000000);
+     background-repeat: no-repeat;
+     background-size: 80%;
+     animation: animate 10s ease-in infinite;
+     -webkit-background-clip: text;
+     background-clip: text;
+     -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}

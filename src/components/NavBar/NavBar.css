@@ -1,0 +1,15 @@
+.NavBar {
+    background-color: #DEB992;
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: none;
+    padding: 1rem 5rem;
+    background-color: #DEB992;
+    position: sticky;
+    top: 0;
+    z-index: 300;
+}
+
+
