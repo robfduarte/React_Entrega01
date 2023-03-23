@@ -5,7 +5,7 @@ const ItemList = ({ services }) => {
         <div style={{ display: 'flex'}}>
                 {
                     services.map(service => {
-                        return <Item {...service} />
+                        return <Item key={service.id} {...service} />
                     })
                 }
             </div>            
