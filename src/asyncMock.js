@@ -51,7 +51,7 @@ const services = [
 ]
 
 export const getServices = () => {
-    return new Promise ( (resolve) => {
+    return new Promise ( (resolve, reject) => {
         setTimeout(() => {
             resolve(services)
         }, 1500)

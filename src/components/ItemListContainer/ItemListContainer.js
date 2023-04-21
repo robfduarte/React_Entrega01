@@ -8,6 +8,7 @@ import { faLessThan } from '@fortawesome/free-solid-svg-icons'
 const ItemListContainer = ({greeting}) => {
     const [servicesState, setServicesState] = useState([])
     const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(false)
 
     const { categoryId } = useParams() 
 
@@ -22,6 +23,7 @@ const ItemListContainer = ({greeting}) => {
             })
             .catch(error => {
                 console.log(error)
+                setError(true)
             })
             .finally(() =>{
                 setLoading(false)
@@ -30,6 +32,10 @@ const ItemListContainer = ({greeting}) => {
     
     if(loading) {
         return <h1>Loading Services...</h1>
+    }
+
+    if(error) {
+        return <h1>Please reload page</h1>
     }
 
     if(servicesState && servicesState.length === 0) {
