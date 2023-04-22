@@ -1,9 +1,11 @@
 import './ItemListContainer.css'
-import { getServices, getServicesByCategory } from '../../asyncMock'
+// import { getServices, getServicesByCategory } from '../../asyncMock'
 import { useEffect, useState} from 'react'
 import ItemList from '../ItemList/ItemList'
 import { useParams } from 'react-router-dom'
 import { faLessThan } from '@fortawesome/free-solid-svg-icons'
+import { getDocs, collection, query, where } from 'firebase/firestore'
+import { db } from '../../services/Firebase/firebaseConfig'
 
 const ItemListContainer = ({greeting}) => {
     const [servicesState, setServicesState] = useState([])
@@ -13,21 +15,42 @@ const ItemListContainer = ({greeting}) => {
     const { categoryId } = useParams() 
 
     useEffect( () => {
-        setLoading(true)
-        const asyncFunction = categoryId ? getServicesByCategory : getServices
+        const serviceRef = categoryId 
+        ? query(collection(db, 'services'), where ('category', '==', categoryId) )
+        : collection(db, 'services')
 
+        getDocs(serviceRef)
+            .then(snapshot => {
+                const servicesAdapted = snapshot.docs.map(doc => {
+                    const data = doc.data()
+                    return { id: doc.id, ...data }
+                })
 
-        asyncFunction(categoryId)
-            .then(services => {
-                setServicesState(services)
+                setServicesState(servicesAdapted)
             })
             .catch(error => {
                 console.log(error)
-                setError(true)
             })
-            .finally(() =>{
+            .finally (() => {
                 setLoading(false)
             })
+
+
+        // setLoading(true)
+        // const asyncFunction = categoryId ? getServicesByCategory : getServices
+
+
+        // asyncFunction(categoryId)
+        //     .then(services => {
+        //         setServicesState(services)
+        //     })
+        //     .catch(error => {
+        //         console.log(error)
+        //         setError(true)
+        //     })
+        //     .finally(() =>{
+        //         setLoading(false)
+        //     })
     }, [categoryId])
     
     if(loading) {
