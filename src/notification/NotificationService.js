@@ -1,11 +1,11 @@
-import { useState, createContext } from "react"
+import { useState, useContext, createContext } from "react"
 
-export const Notification = () => {
+export const Notification = ({ type, text}) => {
     const notificationStyle = {
         position: 'absolute',
         top: 100,
         right: 50,
-        backgroundColor: 'green',
+        backgroundColor: type === 'success' ? 'green' : 'red',
         color: 'white',
         padding: '10px 20px',
         borderRadius: 10
@@ -13,7 +13,7 @@ export const Notification = () => {
 
     return (
         <div style={notificationStyle}>
-            This is a message
+            {text}
         </div>
     )
 }
@@ -21,14 +21,24 @@ export const Notification = () => {
 const NotificationContext = createContext()
 
 export const NotificactionProvider = ({ children }) => {
-    const [notification, setNotification] = useState({
+    const [notificationData, setNotificationData] = useState({
         type: 'success',
-        text: 'This is a message'
+        text: 'This is a message from state'
     })
 
+    const setNotification = (type, text) => {
+        setNotificationData({type, text})
+    }
+
+
     return (
-        <NotificationContext.Provider value={{ notification }}>
+        <NotificationContext.Provider value={{ setNotification }}>
+            <Notification {...notificationData} />
             {children}
         </NotificationContext.Provider>
     )
+}
+
+export const useNotification = () => {
+    return useContext(NotificationContext)
 }

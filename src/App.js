@@ -11,7 +11,6 @@ const App = () => {
   return (
     <div className="App">
     <NotificactionProvider>
-      <Notification />
       <BrowserRouter>
         <CartProvider>
           <NavBar />
