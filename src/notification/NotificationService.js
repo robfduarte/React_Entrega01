@@ -11,6 +11,8 @@ export const Notification = ({ type, text}) => {
         borderRadius: 10
     }
 
+    if(!text) return
+
     return (
         <div style={notificationStyle}>
             {text}
@@ -23,17 +25,22 @@ const NotificationContext = createContext()
 export const NotificactionProvider = ({ children }) => {
     const [notificationData, setNotificationData] = useState({
         type: 'success',
-        text: 'This is a message from state'
+        text: ''
     })
 
     const setNotification = (type, text) => {
         setNotificationData({type, text})
+
+        setTimeout(() => {
+            setNotificationData({ type: 'success', text: ''})
+        }, 2000)
     }
 
 
     return (
         <NotificationContext.Provider value={{ setNotification }}>
-            <Notification {...notificationData} />
+            {/* {notificationData.text && <Notification {...notificationData} />} */}
+            <Notification {...notificationData}/>
             {children}
         </NotificationContext.Provider>
     )
