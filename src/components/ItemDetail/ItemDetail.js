@@ -15,7 +15,7 @@ const ItemDetail = ({ id, name, price, img, stock, description}) => {
         }
         setQuantity(quantity)
         addItem(serviceToAdd)
-        setNotification('success' , `Added correctly ${quantity} ${name}`)
+        setNotification('success' , `Added correctly ${quantity} ${name}`, 1)
 
     }
         return (
@@ -27,11 +27,11 @@ const ItemDetail = ({ id, name, price, img, stock, description}) => {
                 <p>Stock: {stock}</p>
                 <footer>
                     {
-                        quantity === 0 ? (
+                        // quantity === 0 ? (
                         <ItemCount onAdd={handleOnAdd} stock={stock}/>
-                        ) : (
-                            <Link to='/cart'>Check Out</Link>
-                        )
+                        // ) : (
+                        //     <Link to='/cart'>Check Out</Link>
+                        // )
                     }
                 </footer>
                 

@@ -10,7 +10,14 @@ export const CartProvider = ({children}) => {
         if (!isInCart(serviceToAdd.id)) {
             setCart(prev => [...prev, serviceToAdd])
         } else {
-            console.log('Service already in cart')
+            const updatedCart = cart.map(serv => {
+                if(serv.id == serviceToAdd.id) {
+                    return { ...serv, quantity: serviceToAdd.quantity}
+                } else {
+                    return serv
+                }
+            })
+            setCart(updatedCart)
         }
     }
 
@@ -34,8 +41,19 @@ export const CartProvider = ({children}) => {
 
     const totalQuantity = getTotalQuantity()
 
+
+    const getTotal = () => {
+        let total = 0
+        cart.forEach(serv => {
+            total += serv.quantity * serv.price
+        })
+        return total
+    }
+
+    const total = getTotal()
+
     return ( 
-        <CartContext.Provider value = {{cart, addItem, removeItem, totalQuantity}} > 
+        <CartContext.Provider value = {{cart, addItem, removeItem, totalQuantity, total}} > 
         {children} 
         </CartContext.Provider>
 

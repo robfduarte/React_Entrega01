@@ -28,12 +28,12 @@ export const NotificactionProvider = ({ children }) => {
         text: ''
     })
 
-    const setNotification = (type, text) => {
+    const setNotification = (type, text, time) => {
         setNotificationData({type, text})
 
         setTimeout(() => {
             setNotificationData({ type: 'success', text: ''})
-        }, 2000)
+        }, time ? time * 1000 : 2000)
     }
 
 
