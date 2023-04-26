@@ -18,6 +18,10 @@ const [address, setAddress] = useState("");
 const handleConfirm = async (e) => {
     e.preventDefault();
 	
+    if (!name || !phone || !address) {
+        setNotification("error", "Please fill in all the fields");
+    return;
+}
 
     const objOrder = {
         buyer: {
