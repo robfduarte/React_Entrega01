@@ -3,7 +3,6 @@ import './ItemListContainer.css'
 import { useEffect, useState} from 'react'
 import ItemList from '../ItemList/ItemList'
 import { useParams } from 'react-router-dom'
-import { faLessThan } from '@fortawesome/free-solid-svg-icons'
 import { getDocs, collection, query, where } from 'firebase/firestore'
 import { db } from '../../services/Firebase/firebaseConfig'
 
