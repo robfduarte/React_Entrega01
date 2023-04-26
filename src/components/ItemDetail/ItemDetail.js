@@ -26,13 +26,7 @@ const ItemDetail = ({ id, name, price, img, stock, description}) => {
                 <p>Description: {description}</p>
                 <p>Stock: {stock}</p>
                 <footer>
-                    {
-                        // quantity === 0 ? (
-                        <ItemCount onAdd={handleOnAdd} stock={stock}/>
-                        // ) : (
-                        //     <Link to='/cart'>Check Out</Link>
-                        // )
-                    }
+                      {stock > 0 ? <ItemCount onAdd={handleOnAdd} stock={stock}/> : <div><h4 style={{color: 'red'}}>Service out of stock</h4></div>}
                 </footer>
                 
 
