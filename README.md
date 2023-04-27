@@ -24,4 +24,4 @@ See [`.env.example`](https://github.com/robfduarte/React_Entrega01/blob/EntregaF
 
 ## Test App 
 
-[Deploy](hxxps://*****COMMINGSOON*****.vercel.app)
+[Deploy](https://COMMINGSOON.vercel.app)
