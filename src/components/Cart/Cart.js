@@ -1,31 +1,30 @@
-import { useContext } from 'react'
-import { CartContext } from '../../context/CartContext'
-import { Link } from 'react-router-dom'
+import React, { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
-    const { cart } = useContext(CartContext)
+  const { cart } = useContext(CartContext);
 
-    const { totalQuantity, total } = useContext(CartContext)
+  return (
+    <div>
+      <h1>Cart</h1>
+      <div>
+        {cart.map((serv) => {
+          const { id, name, quantity, price } = serv;
+          const total = quantity * price;
 
-    return (
-        <div>
-            <h1>Cart</h1>
-            <div>
-            {
-                cart.map(serv => {
-                    return (
-                        <div key={serv.id}>
-                            <p>Service added: {serv.name} </p>
-                            <p>Quantity: {serv.quantity} </p>
-                            <p>Total: {total} </p>
-                        </div>
-                    )
-                })
-            }
+          return (
+            <div key={id}>
+              <p>Service added: {name}</p>
+              <p>Quantity: {quantity}</p>
+              <p>Total: {total}</p>
             </div>
-            <Link to='/checkout'>Proceed checkout</Link>
-        </div>
-    )
-}
+          );
+        })}
+      </div>
+      <Link to="/checkout">Proceed checkout</Link>
+    </div>
+  );
+};
 
-export default Cart
+export default Cart;
