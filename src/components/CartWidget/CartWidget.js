@@ -13,7 +13,7 @@ const CartWidget = () => {
     return (
         <div className="CartWidget" onClick={() => navigate('/cart')}>
             <img src={cartLogo} alt="cart widget" />
-            {totalQuantity} total ${total}
+            {totalQuantity} Total ${total}
         </div>
         
     )

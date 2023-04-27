@@ -1,5 +1,5 @@
+import './ItemDetailContainer.css'
 import { useEffect, useState } from "react"
-// import { getServiceById } from "../../asyncMock"
 import ItemDetail from "../ItemDetail/ItemDetail"
 import { useParams } from "react-router-dom"
 import { getDoc, doc } from 'firebase/firestore'
@@ -22,17 +22,6 @@ const ItemDetailContainer = () => {
             }) .catch(error => {
                 console.log(error)
             })
-        // setLoading(true)
-        // getServiceById(itemId)
-        //     .then(service => {
-        //         setService(service)
-        //     })
-        //     .catch(error => {
-        //         console.log(error)
-        //     })
-        //     .finally(() =>{
-        //         setLoading(false)
-        //     })
     }, [itemId])
 
     if(loading) {
@@ -41,7 +30,7 @@ const ItemDetailContainer = () => {
 
     return (
         <div>
-            <h1>Service detail</h1>
+            <h1 className="service-detail-style">Service detail</h1>
             <ItemDetail {...service}/>
         </div>
         

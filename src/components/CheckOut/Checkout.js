@@ -1,3 +1,4 @@
+import './Checkout.css' 
 import React, { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import { db } from "../../services/Firebase/firebaseConfig";
@@ -85,24 +86,26 @@ return (
     <div>
     <h1>CheckOut</h1>
     {orderId ? (
-        <h2>Order completed successfully. Order Id: {orderId}</h2>
+        <h2>Order completed successfully. Your order id is: {orderId}</h2>
     ) : (
-        <form onSubmit={handleConfirm}>
+        <form onSubmit={handleConfirm} className="form-style">
         <label>
             Name:
             <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            className="checkout-input"
             />
         </label>
         <br />
         <label>
-            Phone:
+            Phone: 
             <input
             type="text"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
+            className="checkout-input"
             />
         </label>
         <br />
@@ -112,10 +115,11 @@ return (
             type="text"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
+            className="checkout-input"
             />
         </label>
 <br />
-<button type="submit">Generate Order</button>
+<button type="submit" className="checkout-button">Generate Order</button>
 </form>
 )}
 </div>

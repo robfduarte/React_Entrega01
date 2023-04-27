@@ -12,7 +12,7 @@ export const CartProvider = ({children}) => {
         } else {
             const updatedCart = cart.map(serv => {
                 if(serv.id == serviceToAdd.id) {
-                    return { ...serv, quantity: serviceToAdd.quantity}
+                    return { ...serv, quantity: serviceToAdd.quantity, img: serviceToAdd.img}
                 } else {
                     return serv
                 }

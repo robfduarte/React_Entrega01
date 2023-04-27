@@ -1,0 +1,9 @@
+.itemCount-button {
+    background-color: #d39b5f;
+    color: white;
+    padding: 5px 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+}

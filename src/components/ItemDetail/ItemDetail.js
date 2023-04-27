@@ -22,8 +22,8 @@ const ItemDetail = ({ id, name, price, img, stock, description}) => {
             <div style={{background: '#DEB992', margin: 10}}>
                 <h2>{name}</h2>
                 <img src={img} alt={name} style={{ width: 500}}/>
-                <h3>Price: {price}</h3>
-                <p>Description: {description}</p>
+                <h3>Price: $ {price}</h3>
+                <h4>Description: {description}</h4>
                 <p>Stock: {stock}</p>
                 <footer>
                       {stock > 0 ? <ItemCount onAdd={handleOnAdd} stock={stock}/> : <div><h4 style={{color: 'red'}}>Service out of stock</h4></div>}

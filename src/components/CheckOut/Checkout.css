@@ -1,0 +1,24 @@
+.form-style {
+    font-size: larger;
+    background-color: #051622;
+    color: white;
+    border-radius: 1rem;
+    padding: 2rem 0rem;
+
+}
+
+.checkout-input {
+    margin-bottom: 30px;
+    padding: 5px;
+    width: 20rem;
+    height: 2rem;
+}
+
+.checkout-button {
+    background-color: #d39b5f;;
+    color: white;
+    padding: 5px 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}

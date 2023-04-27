@@ -1,5 +1,4 @@
 import './ItemListContainer.css'
-// import { getServices, getServicesByCategory } from '../../asyncMock'
 import { useEffect, useState} from 'react'
 import ItemList from '../ItemList/ItemList'
 import { useParams } from 'react-router-dom'
@@ -34,22 +33,6 @@ const ItemListContainer = ({greeting}) => {
                 setLoading(false)
             })
 
-
-        // setLoading(true)
-        // const asyncFunction = categoryId ? getServicesByCategory : getServices
-
-
-        // asyncFunction(categoryId)
-        //     .then(services => {
-        //         setServicesState(services)
-        //     })
-        //     .catch(error => {
-        //         console.log(error)
-        //         setError(true)
-        //     })
-        //     .finally(() =>{
-        //         setLoading(false)
-        //     })
     }, [categoryId])
     
     if(loading) {
