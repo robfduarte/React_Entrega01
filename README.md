@@ -20,8 +20,12 @@ See [`.env.example`](https://github.com/robfduarte/React_Entrega01/blob/EntregaF
 ## Built Using
 
 - [Create-React-App](https://create-react-app.dev/)
+- [Vercel](https://vercel.com)
 - [Firebase](https://firebase.com)
 
 ## Test App 
 
-Deploy: hxxps://***COMMINGSOON***.vercel.app
+[Deploy](https://react-entrega01-9yaxkifiv-robfduarte.vercel.app/)
+
+
+
