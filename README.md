@@ -25,7 +25,7 @@ See [`.env.example`](https://github.com/robfduarte/React_Entrega01/blob/EntregaF
 
 ## Test App 
 
-[Deploy](https://react-entrega01-lemon.vercel.app/)
+[Deploy](https://react-entrega-final-eight.vercel.app/)
 
 
 
