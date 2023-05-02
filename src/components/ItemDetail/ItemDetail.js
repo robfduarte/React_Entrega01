@@ -1,3 +1,4 @@
+import './ItemDetail.css'
 import ItemCount from "../ItemCount/ItemCount"
 import { Link } from 'react-router-dom'
 import { useContext, useState } from "react"
@@ -19,7 +20,7 @@ const ItemDetail = ({ id, name, price, img, stock, description}) => {
 
     }
         return (
-            <div style={{background: '#DEB992', margin: 10}}>
+            <div className="itemDetail-container">
                 <h2>{name}</h2>
                 <img src={img} alt={name} style={{ width: 500}}/>
                 <h3>Price: $ {price}</h3>

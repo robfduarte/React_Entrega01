@@ -1,9 +1,21 @@
+.checkout-container{
+    display: flex;
+    flex-direction: column;
+    min-height: 90vh; /* Establece la altura mínima del contenedor al 100% de la altura de la ventana */
+    padding-top: 5%;
+}
+
+.checkout-tittle {
+    padding-bottom: 2%;
+    }
+
 .form-style {
+    margin: 0 auto; 
     font-size: larger;
     background-color: #051622;
     color: white;
     border-radius: 1rem;
-    padding: 2rem 0rem;
+    padding: 2rem 1rem;
 
 }
 

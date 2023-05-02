@@ -5,16 +5,20 @@ import { db } from "../../services/Firebase/firebaseConfig";
 import {documentId, getDocs, query, collection, where, writeBatch, addDoc } from "firebase/firestore";
 import { useNotification } from "../../notification/NotificationService";
 import { useNavigate } from "react-router-dom"
+import { useAuth } from '../../context/AuthContext';
 
 const Checkout = () => {
+const { user } = useAuth();
+
 const [orderId, setOrderId] = useState("");
 const { cart, total, clearCart } = useContext(CartContext);
 const { setNotification } = useNotification();
 const navigate = useNavigate()
 
-const [name, setName] = useState("");
+const [name, setName] = useState(user?.username || "");
 const [phone, setPhone] = useState("");
 const [address, setAddress] = useState("");
+
 
 const handleConfirm = async (e) => {
     e.preventDefault();
@@ -82,9 +86,10 @@ const handleConfirm = async (e) => {
     }
 };
 
+
 return (
-    <div>
-    <h1>CheckOut</h1>
+    <div className='checkout-container'>
+    <h1 className='checkout-tittle'>CheckOut</h1>
     {orderId ? (
         <h2>Order completed successfully. Your order id is: {orderId}</h2>
     ) : (
@@ -125,5 +130,6 @@ return (
 </div>
 );
 };
+
 
 export default Checkout;
